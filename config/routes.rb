@@ -43,6 +43,8 @@ Rails.application.routes.draw do
 
   get "s/:locator", to: "student#status", as: :student_status
 
+  mount GraphqlProxy.new => '/api/v1/graphql'
+
   get "*path", to: "home#index"
   root to: "home#index"
 end

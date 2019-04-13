@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-ruby "2.5.1"
+ruby "2.5.5"
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "jbuilder", "~> 2.5"
@@ -10,6 +10,7 @@ gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.1"
 gem "rack-cors"
+gem "rack-proxy"
 
 gem "commonmarker"
 gem "full-name-splitter"

@@ -1,0 +1,32 @@
+app_name: 'Super Graph Development'
+host_port: 0.0.0.0:8080
+web_ui: true
+debug_level: 1
+enable_tracing: true
+auth_fail_block: never
+
+auth:
+  type: rails
+  cookie: _app_session
+  header: X-User-ID
+  rails:
+    version: 5.2
+    secret_key_base: 998fe632f549e537f58c8c40dd0863d25f04c327b93c8260a222b50b60fb6b635fb711af7992055148831c6e12df32d5c7eb878724afe770374d4c8715c5bd21
+
+database:
+  type: postgres
+  host: host.docker.internal
+  dbname: gateway_development
+  defaults:
+    blacklist:
+      - ar_internal_metadata
+      - schema_migrations
+      - secret
+      - password
+      - encrypted
+      - token
+
+  fields:
+    - name: me
+      table: users
+      filter: ['{ id: { eq: $user_id } }']
