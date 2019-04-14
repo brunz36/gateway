@@ -13,6 +13,7 @@ gem "rack-cors"
 
 gem "commonmarker"
 gem "full-name-splitter"
+gem "graphql", github: "rmosolgo/graphql-ruby" # Until JSON type is included in release
 gem "http"
 gem "mailchimp-api", require: "mailchimp"
 gem "nutshell-crm-api"

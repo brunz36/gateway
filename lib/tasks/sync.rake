@@ -29,4 +29,23 @@ namespace :sync do
       end
     end
   end
+
+  task graphql: :environment do
+    Rails.application.eager_load!
+    ApplicationRecord.descendants.collect { |type|
+      name = type.name
+
+      puts <<~OUT
+
+             field :#{name.underscore}, #{name}Type, null: true do
+               description "Find a #{name.humanize} by ID"
+               argument :id, ID, required: true
+             end
+
+             def #{name.underscore}(id:)
+               #{name}.find(id)
+             end
+           OUT
+    }
+  end
 end

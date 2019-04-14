@@ -41,6 +41,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post "/graphql", to: "graphql#execute"
+
   get "s/:locator", to: "student#status", as: :student_status
 
   get "*path", to: "home#index"
